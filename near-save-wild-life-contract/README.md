@@ -54,3 +54,17 @@ near call swl-contract.market_vgnsbg.testnet setAnimal "{\"id\": \"2\", \"animal
 near view swl-contract.market_vgnsbg.testnet getAnimal "{\"id\": \"0\"}"
 near view swl-contract.market_vgnsbg.testnet getAnimal "{\"id\": \"42\"}"
 ```
+
+## Contract Redeployment(repeat compile and deploy)
+
+```
+yarn asb
+near deploy --accountId=swl-contract.market_vgnsbg.testnet --wasmFile=build/release/near-save-wild-life.wasm
+```
+
+## Add new animal corresponding to model and view the result
+
+```
+near call swl-contract.market_vgnsbg.testnet setAnimal "{\"animal\": {\"id\": \"0\", \"name\": \"Fox\", \"description\": \"Foxes are small to medium-sized, omnivorous mammals belonging to several genera of the family Canidae. They have a flattened skull, upright triangular ears, a pointed, slightly upturned snout, and a long bushy tail (or brush).\", \"image\": \"https://i.imgur.com/Xb7DbQ6.jpeg\", \"population\": \"9,840-19,200\"}}" --accountId=market_vgnsbg.testnet
+near view swl-contract.market_vgnsbg.testnet getAnimal "{\"id\": \"0\"}"
+```
