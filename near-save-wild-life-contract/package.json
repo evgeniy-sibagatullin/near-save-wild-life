@@ -1,0 +1,13 @@
+{
+  "name": "near-save-wild-life",
+  "version": "0.1.0",
+  "description": "Example of smart contract for a decentralized marketplace on the NEAR blockchain",
+  "main": "index.js",
+  "repository": "TODO",
+  "author": "evgeniy-sibagatullin",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "near-sdk-as": "^3.2.3"
+  }
+}
