@@ -62,9 +62,32 @@ yarn asb
 near deploy --accountId=swl-contract.market_vgnsbg.testnet --wasmFile=build/release/near-save-wild-life.wasm
 ```
 
-## Add new animal corresponding to model and view the result
+### Add new animal corresponding to model and view the result
 
 ```
-near call swl-contract.market_vgnsbg.testnet setAnimal "{\"animal\": {\"id\": \"0\", \"name\": \"Fox\", \"description\": \"Foxes are small to medium-sized, omnivorous mammals belonging to several genera of the family Canidae. They have a flattened skull, upright triangular ears, a pointed, slightly upturned snout, and a long bushy tail (or brush).\", \"image\": \"https://i.imgur.com/Xb7DbQ6.jpeg\", \"population\": \"9,840-19,200\"}}" --accountId=market_vgnsbg.testnet
+near call swl-contract.market_vgnsbg.testnet setAnimal "{\"animal\": {\"id\": \"0\", \"name\": \"Fox\", \"description\": \"Foxes are small to medium-sized, omnivorous mammals belonging to several genera of the family Canidae. They have a flattened skull, upright triangular ears, a pointed, slightly upturned snout, and a long bushy tail (or brush).\", \"image\": \"https://i.imgur.com/Yw2UhAR.jpg\", \"population\": \"9,840-19,200\"}}" --accountId=market_vgnsbg.testnet
+near call swl-contract.market_vgnsbg.testnet setAnimal "{\"animal\": {\"id\": \"1\", \"name\": \"Wolf\", \"description\": \"The wolf (Canis lupus), also known as the gray wolf or grey wolf, is a large canine native to Eurasia and North America. It is distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail.\", \"image\": \"https://i.imgur.com/MFWcU4T.jpg\", \"population\": \"9,840-19,200\"}}" --accountId=market_vgnsbg.testnet
+near call swl-contract.market_vgnsbg.testnet setAnimal "{\"animal\": {\"id\": \"2\", \"name\": \"Mouse\", \"description\": \"A mouse (pl: mice) is a small mammal. Characteristically, mice are known to have a pointed snout, small rounded ears, a body-length scaly tail, and a high breeding rate. The best known mouse species is the common house mouse (Mus musculus).\", \"image\": \"https://i.imgur.com/QdiCMxr.jpg\", \"population\": \"17-22 billions\"}}" --accountId=market_vgnsbg.testnet
+near view swl-contract.market_vgnsbg.testnet getAnimal "{\"id\": \"0\"}"
+```
+
+### Reset animals data if needed
+
+```
+near call swl-contract.market_vgnsbg.testnet resetAnimals --accountId=market_vgnsbg.testnet
+```
+
+## Contract with Donate Function
+
+### Create a new sub-account that will act as the donor
+
+```
+near create-account donor.market_vgnsbg.testnet --masterAccount market_vgnsbg.testnet --initialBalance 7
+```
+
+### Perform donation call and view the result
+
+```
+near call swl-contract.market_vgnsbg.testnet donateOneNear "{\"id\": \"0\"}" --depositYocto=1000000000000000000000000 --accountId=donor.market_vgnsbg.testnet
 near view swl-contract.market_vgnsbg.testnet getAnimal "{\"id\": \"0\"}"
 ```
