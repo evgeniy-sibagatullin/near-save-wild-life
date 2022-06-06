@@ -1,25 +1,42 @@
 import React, {useCallback, useEffect, useState} from "react";
 import "./App.css";
-import {getAnimals} from "./utils/marketplace";
-import {login} from "./utils/near";
+import { login, logout as destroy, accountBalance } from "./utils/near";
+import { Container, Nav } from "react-bootstrap";
+import Wallet from "./components/Wallet";
+import Cover from "./components/utils/Cover";
+import coverImg from "./assets/img/coverImg.jpg";
 
 function App() {
     const account = window.walletConnection.account();
-    const [animals, setAnimals] = useState([]);
-    const fetchAnimals = useCallback(async () => {
+    const [balance, setBalance] = useState("0");
+    const getBalance = useCallback(async () => {
         if (account.accountId) {
-            setAnimals(await getAnimals());
+            setBalance(await accountBalance());
         }
     }, [account.accountId]);
+
     useEffect(() => {
-        fetchAnimals().then();
-    }, [fetchAnimals]);
+        getBalance().then();
+    }, [getBalance]);
     return (
         <>
+            {/* <Notification /> */}
             {account.accountId ? (
-                console.log(animals)
+                <Container fluid="md">
+                    <Nav className="justify-content-end pt-3 pb-5">
+                        <Nav.Item>
+                            <Wallet
+                                address={account.accountId}
+                                amount={balance}
+                                symbol="NEAR"
+                                destroy={destroy}
+                            />
+                        </Nav.Item>
+                    </Nav>
+                    <main>{/* <Products /> */}</main>
+                </Container>
             ) : (
-                <button onClick={login}>CONNECT WALLET</button>
+                <Cover login={login} coverImg={coverImg} />
             )}
         </>
     );
