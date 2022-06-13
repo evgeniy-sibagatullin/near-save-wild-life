@@ -1,4 +1,5 @@
 import { v4 as uuid4 } from "uuid";
+import { utils } from "near-api-js";
 
 const GAS = 100000000000000;
 
@@ -12,5 +13,5 @@ export function getAnimals() {
 }
 
 export async function donateOneNear({ id }) {
-    await window.contract.donateOneNear({ productId: id }, GAS);
+    await window.contract.donateOneNear({ id: id }, GAS, utils.format.formatNearAmount("1"));
 }

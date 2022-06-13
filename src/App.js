@@ -1,8 +1,10 @@
 import React, {useCallback, useEffect, useState} from "react";
 import "./App.css";
-import { login, logout as destroy, accountBalance } from "./utils/near";
-import { Container, Nav } from "react-bootstrap";
+import {accountBalance, login, logout as destroy} from "./utils/near";
+import {Container, Nav} from "react-bootstrap";
 import Wallet from "./components/Wallet";
+import {Notification} from "./components/utils/Notifications";
+import Animals from "./components/donatarium/Animals";
 import Cover from "./components/utils/Cover";
 import coverImg from "./assets/img/coverImg.jpg";
 
@@ -20,7 +22,7 @@ function App() {
     }, [getBalance]);
     return (
         <>
-            {/* <Notification /> */}
+            <Notification/>
             {account.accountId ? (
                 <Container fluid="md">
                     <Nav className="justify-content-end pt-3 pb-5">
@@ -33,10 +35,12 @@ function App() {
                             />
                         </Nav.Item>
                     </Nav>
-                    <main>{/* <Products /> */}</main>
+                    <main>
+                        <Animals/>
+                    </main>
                 </Container>
             ) : (
-                <Cover login={login} coverImg={coverImg} />
+                <Cover login={login} coverImg={coverImg}/>
             )}
         </>
     );
