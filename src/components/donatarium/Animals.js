@@ -20,7 +20,7 @@ const Animals = () => {
         } finally {
             setLoading(false);
         }
-    },[]);
+    }, []);
 
     const addAnimal = async (data) => {
         try {
@@ -65,6 +65,7 @@ const Animals = () => {
                     <Row xs={1} sm={2} lg={3} className="g-3  mb-5 g-xl-4 g-xxl-5">
                         {animals.map((_animal) => (
                             <Animal
+                                key={_animal.id}
                                 animal={{
                                     ..._animal,
                                 }}

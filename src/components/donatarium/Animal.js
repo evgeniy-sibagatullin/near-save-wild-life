@@ -11,7 +11,7 @@ const Animal = ({animal, donate}) => {
     };
 
     return (
-        <Col key={id}>
+        <Col>
             <Card className=" h-100">
                 <Card.Header>
                     <Stack direction="horizontal" gap={2}>
