@@ -7,7 +7,6 @@ const Animal = ({animal, donate}) => {
         animal;
 
     const triggerDonate = () => {
-        console.log("[Animal.js] id: " + id);
         donate(id.toString());
     };
 

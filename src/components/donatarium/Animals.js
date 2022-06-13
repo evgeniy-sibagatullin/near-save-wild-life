@@ -15,7 +15,6 @@ const Animals = () => {
         try {
             setLoading(true);
             setAnimals(await getAnimalList());
-            console.log("[Animals.js] getAnimals");
         } catch (error) {
             console.log({error});
         } finally {
@@ -40,7 +39,6 @@ const Animals = () => {
 
     const donate = async (id) => {
         try {
-            console.log("[Animals.js] donate id: " + id);
             await donateOneNear({
                 id,
             }).then(() => getAnimals());
