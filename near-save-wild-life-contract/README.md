@@ -71,7 +71,13 @@ near call swl-contract.market_vgnsbg.testnet setAnimal "{\"animal\": {\"id\": \"
 near view swl-contract.market_vgnsbg.testnet getAnimal "{\"id\": \"0\"}"
 ```
 
-### Reset animals data if needed
+### Delete animal(only for an animal owner)
+
+```
+near call swl-contract.market_vgnsbg.testnet deleteAnimal "{\"id\": \"2\", \"owner\": \"market_vgnsbg.testnet\"}" --accountId=market_vgnsbg.testnet
+```
+
+### Reset all animals` data if needed
 
 ```
 near call swl-contract.market_vgnsbg.testnet resetAnimals --accountId=market_vgnsbg.testnet

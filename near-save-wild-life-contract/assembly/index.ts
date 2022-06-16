@@ -2,7 +2,7 @@ import {Animal, listedAnimals} from './model';
 import {context, ContractPromiseBatch} from 'near-sdk-as';
 
 export function resetAnimals(): void {
-    listedAnimals.clear()
+    listedAnimals.clear(); // not available from site, for dev purpose only
 }
 
 export function setAnimal(animal: Animal): void {
@@ -14,7 +14,12 @@ export function setAnimal(animal: Animal): void {
 }
 
 export function getAnimal(id: string): Animal | null {
-    return listedAnimals.get(id);
+    let animal = listedAnimals.get(id);
+    if (animal == null) {
+        throw new Error(`animal with ${id} not found`);
+    } else {
+        return animal;
+    }
 }
 
 export function getAnimals(): Animal[] {
@@ -24,7 +29,7 @@ export function getAnimals(): Animal[] {
 export function donateOneNear(id: string): void {
     const animal = getAnimal(id);
     if (animal == null) {
-        throw new Error("animal not found");
+        throw new Error(`animal with ${id} not found`);
     }
     if ("1000000000000000000000000" != context.attachedDeposit.toString()) {
         throw new Error("attached donation deposit should equal to one near");
@@ -32,4 +37,15 @@ export function donateOneNear(id: string): void {
     ContractPromiseBatch.create(animal.owner).transfer(context.attachedDeposit);
     animal.receiveDonation(1);
     listedAnimals.set(animal.id, animal);
+}
+
+export function deleteAnimal(id: string, owner: string): void {
+    let animal = listedAnimals.get(id);
+    if (animal == null) {
+        throw new Error(`animal with ${id} not found`);
+    } else if (owner == animal.owner) {
+        listedAnimals.delete(id);
+    } else {
+        throw new Error("only owner can delete animal");
+    }
 }
