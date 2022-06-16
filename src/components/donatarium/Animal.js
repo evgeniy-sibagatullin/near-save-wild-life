@@ -2,13 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Badge, Button, Card, Col, Stack} from "react-bootstrap";
 
-const Animal = ({animal, donate}) => {
+const Animal = ({animal, donate, deleteAnimal}) => {
     const {id, name, description, image, population, owner, donation} =
         animal;
 
     const triggerDonate = () => {
-        donate(id.toString());
+        donate(id);
     };
+
+    const triggerDelete = () => {
+        deleteAnimal(id, owner);
+    }
+
+    const isOwner = window.walletConnection.account().accountId === owner;
 
     return (
         <Col>
@@ -28,15 +34,23 @@ const Animal = ({animal, donate}) => {
                     <Card.Title>{name}</Card.Title>
                     <Card.Text className="flex-grow-1 ">{description}</Card.Text>
                     <Card.Text className="text-secondary">
-                        <span>{population}</span>
+                        <span>Population: {population}</span>
                     </Card.Text>
-                    <Button
-                        variant="outline-dark"
-                        onClick={triggerDonate}
-                        className="w-100 py-3"
-                    >
-                        Donate One NEAR
-                    </Button>
+                    {isOwner ?
+                        <Button
+                            variant="outline-dark"
+                            onClick={triggerDelete}
+                            className="w-100 py-3 btn-danger"
+                        >
+                            Delete animal
+                        </Button> :
+                        <Button
+                            variant="outline-dark"
+                            onClick={triggerDonate}
+                            className="w-100 py-3"
+                        >
+                            Donate One NEAR
+                        </Button>}
                 </Card.Body>
             </Card>
         </Col>
@@ -46,6 +60,7 @@ const Animal = ({animal, donate}) => {
 Animal.propTypes = {
     animal: PropTypes.instanceOf(Object).isRequired,
     donate: PropTypes.func.isRequired,
+    deleteAnimal: PropTypes.func.isRequired,
 };
 
 export default Animal;

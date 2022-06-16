@@ -12,6 +12,10 @@ export function getAnimals() {
     return window.contract.getAnimals();
 }
 
-export async function donateOneNear({id}) {
+export async function donateOneNear(id) {
     await window.contract.donateOneNear({id: id}, GAS, parseNearAmount("1"));
+}
+
+export async function deleteAnimal(id, owner) {
+    return window.contract.deleteAnimal({id, owner});
 }

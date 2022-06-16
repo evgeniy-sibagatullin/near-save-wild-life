@@ -5,7 +5,7 @@ import Animal from "./Animal";
 import Loader from "../utils/Loader";
 import {Row} from "react-bootstrap";
 import {NotificationError, NotificationSuccess} from "../utils/Notifications";
-import {createAnimal, donateOneNear, getAnimals as getAnimalList,} from "../../utils/marketplace";
+import {createAnimal, deleteAnimal, donateOneNear, getAnimals as getAnimalList} from "../../utils/marketplace";
 
 const Animals = () => {
     const [animals, setAnimals] = useState([]);
@@ -39,12 +39,21 @@ const Animals = () => {
 
     const donate = async (id) => {
         try {
-            await donateOneNear({
-                id,
-            }).then(() => getAnimals());
+            await donateOneNear(id).then(() => getAnimals());
             toast(<NotificationSuccess text="Donated successfully"/>);
         } catch (error) {
             toast(<NotificationError text="Failed to donate"/>);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const deleteOwnerAnimal = async (id, owner) => {
+        try {
+            await deleteAnimal(id, owner).then(() => getAnimals());
+            toast(<NotificationSuccess text="Deleted successfully"/>);
+        } catch (error) {
+            toast(<NotificationError text="Failed to delete"/>);
         } finally {
             setLoading(false);
         }
@@ -70,6 +79,7 @@ const Animals = () => {
                                     ..._animal,
                                 }}
                                 donate={donate}
+                                deleteAnimal={deleteOwnerAnimal}
                             />
                         ))}
                     </Row>
