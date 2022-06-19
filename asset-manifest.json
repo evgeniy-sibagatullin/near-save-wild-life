@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/near-save-wild-life/static/css/main.d87cbb72.chunk.css",
+    "main.js": "/near-save-wild-life/static/js/main.1e649335.chunk.js",
+    "main.js.map": "/near-save-wild-life/static/js/main.1e649335.chunk.js.map",
+    "runtime-main.js": "/near-save-wild-life/static/js/runtime-main.af8d04c7.js",
+    "runtime-main.js.map": "/near-save-wild-life/static/js/runtime-main.af8d04c7.js.map",
+    "static/css/2.eb078e0e.chunk.css": "/near-save-wild-life/static/css/2.eb078e0e.chunk.css",
+    "static/js/2.1dd04d42.chunk.js": "/near-save-wild-life/static/js/2.1dd04d42.chunk.js",
+    "static/js/2.1dd04d42.chunk.js.map": "/near-save-wild-life/static/js/2.1dd04d42.chunk.js.map",
+    "static/js/3.003fe3eb.chunk.js": "/near-save-wild-life/static/js/3.003fe3eb.chunk.js",
+    "static/js/3.003fe3eb.chunk.js.map": "/near-save-wild-life/static/js/3.003fe3eb.chunk.js.map",
+    "index.html": "/near-save-wild-life/index.html",
+    "static/css/2.eb078e0e.chunk.css.map": "/near-save-wild-life/static/css/2.eb078e0e.chunk.css.map",
+    "static/css/main.d87cbb72.chunk.css.map": "/near-save-wild-life/static/css/main.d87cbb72.chunk.css.map",
+    "static/js/2.1dd04d42.chunk.js.LICENSE.txt": "/near-save-wild-life/static/js/2.1dd04d42.chunk.js.LICENSE.txt",
+    "static/media/bootstrap-icons.css": "/near-save-wild-life/static/media/bootstrap-icons.f2539a50.woff2",
+    "static/media/coverImg.478d1a92.jpg": "/near-save-wild-life/static/media/coverImg.478d1a92.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.af8d04c7.js",
+    "static/css/2.eb078e0e.chunk.css",
+    "static/js/2.1dd04d42.chunk.js",
+    "static/css/main.d87cbb72.chunk.css",
+    "static/js/main.1e649335.chunk.js"
+  ]
+}
