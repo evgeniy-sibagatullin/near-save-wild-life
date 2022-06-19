@@ -1,72 +1,23 @@
 # NEAR Development 101 Challenge Project "Save Wild Life"
 
-# Getting Started with Create React App
+Decentralized nature support service via donation to animals built on NEAR blockchain with AssemblyScript and React.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Demo project is accessible at https://evgeniy-sibagatullin.github.io/near-save-wild-life**
 
-## Available Scripts
+<img width="989" src="https://i.imgur.com/jBGUNQz.jpg">
 
-In the project directory, you can run:
+## Features
+* Create animal entry to receive donation
+* Donate to entries created by other users
+* Delete owned entries
+* Clear all entries(not available on GUI, only for dev purpose)
 
-### `npm start`
+## Marketplace Smart Contract
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The main Smart Contract built with Assembly Script similar to the original smart contract from the tutorial.
+It has quite a few changes - constant donation amount, delete animal and reset animals calls.
+Detailed information about contract can be found [here](https://github.com/evgeniy-sibagatullin/near-save-wild-life/tree/master/near-save-wild-life-contract).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Dacade
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project completed based on amazing [Dacade NEAR tutorial](https://dacade.org/communities/near/courses/near-101)
